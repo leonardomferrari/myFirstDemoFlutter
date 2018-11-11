@@ -7,6 +7,8 @@ Exploring Flutter, I try to discover if it is viable to use it in our next proje
 For help getting started with Flutter, view our online
 [documentation](https://flutter.io/).
 
-# my_first_demo_flutter
+# Firts App - Example
 
 * Flutter Basics - Material Design(Ready)
+* Flutter Basics - Widgets(Ready)
+* Stateless and Stateful Widgets(Ready)
