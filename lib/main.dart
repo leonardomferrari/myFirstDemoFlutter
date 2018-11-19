@@ -5,7 +5,15 @@ void main() => runApp(new TodoApp());
 class TodoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(title: 'Todo List', home: new TodoList());
+    return new MaterialApp(
+      title: 'Todo List',
+      home: new TodoList(),
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        primaryColor: Colors.lightBlue[800],
+        accentColor: Colors.cyan[600],
+      ),
+    );
   }
 }
 
@@ -70,7 +78,8 @@ class TodoListState extends State<TodoList> {
         context: context,
         builder: (BuildContext context) {
           return new AlertDialog(
-            title: new Text('Esta seguro que esta terminada la tarea: "${_todoItems[item]}" '),
+            title: new Text(
+                'Esta seguro que esta terminada la tarea: "${_todoItems[item]}" '),
             actions: <Widget>[
               FlatButton(
                 onPressed: () {

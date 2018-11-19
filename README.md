@@ -15,3 +15,4 @@ For help getting started with Flutter, view our online
 * User Interaction (Ready)
 * User Interaction - Adding a todo item (Ready)
 * User Interaction -  Removing todo items (Ready)
+* Change the theme (Ready)
