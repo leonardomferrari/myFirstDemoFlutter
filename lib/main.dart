@@ -28,13 +28,15 @@ class TodoListState extends State<TodoList> {
   Widget _buildTodoList() {
     return ListView.builder(itemBuilder: (context, index) {
       if (index < _todoItems.length) {
-        return _buildTodoItem(_todoItems[index]);
+        return _buildTodoItem(_todoItems[index], index);
       }
     });
   }
 
-  Widget _buildTodoItem(String todoTextItem) {
-    return ListTile(title: new Text(todoTextItem));
+  Widget _buildTodoItem(String todoTextItem, int index) {
+    return ListTile(
+        title: new Text(todoTextItem),
+        onTap: () => _promptRemoveTodoItem(index));
   }
 
   void _pushAddTodoScreen() {
@@ -55,6 +57,37 @@ class TodoListState extends State<TodoList> {
         ),
       );
     }));
+  }
+
+  void _removeTodoItem(int index) {
+    setState(() {
+      _todoItems.removeAt(index);
+    });
+  }
+
+  void _promptRemoveTodoItem(int item) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return new AlertDialog(
+            title: new Text('Esta seguro que esta terminada la tarea: "${_todoItems[item]}" '),
+            actions: <Widget>[
+              FlatButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: new Text('Cancelar'),
+              ),
+              FlatButton(
+                onPressed: () {
+                  _removeTodoItem(item);
+                  Navigator.of(context).pop();
+                },
+                child: new Text('Aceptar'),
+              )
+            ],
+          );
+        });
   }
 
   @override

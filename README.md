@@ -14,3 +14,4 @@ For help getting started with Flutter, view our online
 * Modifying State (Ready)
 * User Interaction (Ready)
 * User Interaction - Adding a todo item (Ready)
+* User Interaction -  Removing todo items (Ready)
